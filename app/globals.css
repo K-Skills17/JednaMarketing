@@ -1,0 +1,119 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink: #0C1F1A;
+  --color-ink-light: #1A3028;
+  --color-paper: #F7F9F8;
+  --color-revive: #21C58B;
+  --color-revive-dark: #17a374;
+  --color-muted: #5A7269;
+  --color-muted-light: #8AA89E;
+
+  --font-display: "Playfair Display", Georgia, serif;
+  --font-body: "DM Sans", system-ui, sans-serif;
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background-color: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-body);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+    html {
+      scroll-behavior: auto;
+    }
+  }
+}
+
+@layer components {
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 2rem;
+    background-color: var(--color-revive);
+    color: var(--color-ink);
+    font-weight: 600;
+    font-size: 1rem;
+    border-radius: 2px;
+    transition: background-color 0.2s;
+    text-decoration: none;
+  }
+
+  .btn-primary:hover {
+    background-color: var(--color-revive-dark);
+  }
+
+  .btn-primary:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--color-revive), 0 0 0 4px var(--color-ink);
+  }
+
+  .btn-primary-lg {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.25rem 2.5rem;
+    background-color: var(--color-revive);
+    color: var(--color-ink);
+    font-weight: 700;
+    font-size: 1.125rem;
+    border-radius: 2px;
+    transition: background-color 0.2s;
+    text-decoration: none;
+  }
+
+  .btn-primary-lg:hover {
+    background-color: var(--color-revive-dark);
+  }
+
+  .btn-primary-lg:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--color-revive), 0 0 0 4px var(--color-ink);
+  }
+
+  .section-pad {
+    padding-top: clamp(4rem, 8vw, 8rem);
+    padding-bottom: clamp(4rem, 8vw, 8rem);
+  }
+
+  .container-site {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: clamp(1.5rem, 4vw, 4rem);
+    padding-right: clamp(1.5rem, 4vw, 4rem);
+  }
+
+  .eyebrow {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--color-revive);
+    display: block;
+  }
+
+  .tabular {
+    font-variant-numeric: tabular-nums;
+  }
+}
