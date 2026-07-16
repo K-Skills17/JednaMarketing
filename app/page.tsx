@@ -373,10 +373,11 @@ export default function HomePage() {
       <footer className="bg-ink border-t border-white/10 py-8">
         <div className="container-site">
           <div className="flex flex-col sm:flex-row justify-between items-center gap-4 text-paper/30 text-xs">
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-4">
               <span className="font-display font-bold text-paper/50">jedna</span>
               <span className="w-1 h-1 rounded-full bg-revive/50" />
               <span>Marketing LLC</span>
+              <a href="tel:+12202243108" className="hover:text-revive transition-colors">+1 (220) 224-3108</a>
             </div>
             <div className="flex gap-6">
               <Link href="/compliance" className="hover:text-revive transition-colors">Compliance</Link>

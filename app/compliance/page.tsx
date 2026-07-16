@@ -163,7 +163,9 @@ export default function CompliancePage() {
                 </p>
                 <p>
                   For compliance-related inquiries:{" "}
-                  <span className="text-ink font-medium">[compliance@jednamarketing.com — placeholder]</span>
+                  <a href="mailto:compliance@jednamarketing.com" className="text-revive hover:underline">compliance@jednamarketing.com</a>
+                  {" "}or call{" "}
+                  <a href="tel:+12202243108" className="text-revive hover:underline">+1 (220) 224-3108</a>
                 </p>
               </Section>
             </div>
@@ -184,7 +186,7 @@ export default function CompliancePage() {
       <footer className="bg-ink border-t border-white/10 py-8">
         <div className="container-site">
           <div className="flex flex-col sm:flex-row justify-between items-center gap-4 text-paper/30 text-xs">
-            <span>Jedna Marketing LLC · TCPA Compliance Standards · {LAST_UPDATED}</span>
+            <span>Jedna Marketing LLC · jednamarketing.com · TCPA Compliance Standards · {LAST_UPDATED}</span>
             <div className="flex gap-6">
               <Link href="/privacy" className="hover:text-revive transition-colors">Privacy</Link>
               <Link href="/terms" className="hover:text-revive transition-colors">Terms</Link>

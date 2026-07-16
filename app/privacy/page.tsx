@@ -77,7 +77,7 @@ export default function PrivacyPage() {
               <section>
                 <h2 className="font-semibold text-ink text-lg mb-3">7. Contact</h2>
                 <p>
-                  Jedna Marketing LLC · [privacy@jednamarketing.com — placeholder] · [US address — placeholder]
+                  Jedna Marketing LLC · <a href="mailto:privacy@jednamarketing.com" className="text-revive hover:underline">privacy@jednamarketing.com</a> · <a href="tel:+12202243108" className="text-revive hover:underline">+1 (220) 224-3108</a>
                 </p>
               </section>
             </div>
