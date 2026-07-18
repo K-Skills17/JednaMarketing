@@ -2,11 +2,12 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Nav from "@/components/Nav";
 import QualifierForm from "@/components/QualifierForm";
+import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "Book Your Reactivation Audit — Jedna Marketing",
   description:
-    "20 minutes. We count your recoverable leads and show you the revenue math. Bring nothing — we walk you through the lead export live if you want.",
+    "20 minutes. We count your unscheduled patients and show you the revenue math. Bring nothing — we walk you through the database live if you want.",
 };
 
 export default function AuditPage() {
@@ -31,15 +32,15 @@ export default function AuditPage() {
               Book your Reactivation Audit
             </h1>
             <p className="text-muted text-lg leading-relaxed mb-10">
-              Bring nothing — we&apos;ll walk you through the lead export live if you want the count done on the call.
+              Bring nothing — we&apos;ll walk you through the unscheduled treatment report live if you want the count done on the call.
             </p>
 
-            {/* Trust strips */}
             <div className="flex flex-wrap gap-4 mb-10">
               {[
                 "Performance-only pilot",
                 "TCPA-compliant outreach",
                 "5 pilots/month cap",
+                "BAA available for dental practices",
               ].map((t) => (
                 <span key={t} className="inline-flex items-center gap-1.5 text-xs text-muted border border-ink/10 rounded-full px-3 py-1.5">
                   <span className="w-1 h-1 rounded-full bg-revive" />
@@ -53,7 +54,7 @@ export default function AuditPage() {
             </div>
 
             <p className="text-xs text-muted text-center mt-6">
-              Under 300 leads or ticket below $200? We&apos;ll add you to the waitlist and reach out when it&apos;s a fit.{" "}
+              Under 300 patients or a small database? We&apos;ll tell you honestly on the call.{" "}
               <Link href="/compliance" className="underline underline-offset-2 hover:text-revive transition-colors">
                 Compliance standards →
               </Link>
@@ -61,6 +62,7 @@ export default function AuditPage() {
           </div>
         </div>
       </main>
+      <Footer />
     </>
   );
 }

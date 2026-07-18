@@ -2,20 +2,20 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Jedna Marketing — Performance-Only Patient Reactivation for Cash-Pay Practices",
+  title: "Jedna Marketing — Performance-Only Patient Reactivation for Dental Practices",
   description:
-    "Your CRM is full of patients who almost booked. Jedna's Revive™ system re-contacts every lead you've already paid for — you pay only per booked appointment. No retainer, no setup fee.",
+    "Your practice software is full of patients who said yes and never scheduled. Jedna's Revive™ system re-contacts your unscheduled treatment plans, lapsed recall, and cold leads — you pay only per booked appointment. No retainer, no setup fee.",
   openGraph: {
-    title: "Jedna Marketing — Performance-Only Patient Reactivation",
+    title: "Jedna Marketing — Performance-Only Patient Reactivation for Dental Practices",
     description:
-      "Dead leads become booked appointments. You pay per result, never in advance. Built for med spas, aesthetics clinics, and cash-pay wellness practices.",
+      "Unscheduled treatment plans become booked appointments. Pay per result, never in advance. Built for dental practices.",
     type: "website",
     locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
     title: "Jedna Marketing — Performance-Only Patient Reactivation",
-    description: "Dead leads become booked appointments. You pay per result, never in advance.",
+    description: "Unscheduled patients become booked appointments. You pay per result, never in advance.",
   },
   robots: {
     index: true,
@@ -26,12 +26,19 @@ export const metadata: Metadata = {
 const orgSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  name: "Jedna Marketing",
+  name: "Jedna Marketing LLC",
   description:
-    "Performance-only patient reactivation for cash-pay health and wellness practices.",
+    "Performance-only patient reactivation for dental practices. Pay per booked appointment.",
   url: "https://jednamarketing.com",
+  telephone: "+12202243108",
+  // TODO: Replace with actual address when confirmed
+  address: {
+    "@type": "PostalAddress",
+    addressCountry: "US",
+  },
   contactPoint: {
     "@type": "ContactPoint",
+    telephone: "+12202243108",
     contactType: "sales",
     availableLanguage: "English",
   },

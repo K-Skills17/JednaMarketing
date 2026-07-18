@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Nav from "@/components/Nav";
+import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "Terms of Service — Jedna Marketing",
@@ -35,14 +36,14 @@ export default function TermsPage() {
               <section>
                 <h2 className="font-semibold text-ink text-lg mb-3">1. Services</h2>
                 <p>
-                  Jedna Marketing LLC provides patient reactivation services to cash-pay health and wellness businesses. Services are described in individual pilot agreements. These terms govern use of the jednamarketing.com website and any inquiry or booking submitted through it.
+                  Jedna Marketing LLC provides patient reactivation services to dental practices and other health and wellness businesses. Services are described in individual pilot agreements. These terms govern use of the jednamarketing.com website and any inquiry or booking submitted through it.
                 </p>
               </section>
 
               <section>
                 <h2 className="font-semibold text-ink text-lg mb-3">2. Eligibility</h2>
                 <p>
-                  Services are available to US-based businesses only. By submitting a qualifier form, you represent that you operate a lawful business and that the lead database you provide was collected in compliance with applicable law.
+                  Services are available to US-based businesses only. By submitting a qualifier form or contact form, you represent that you operate a lawful business and that any patient or lead database you provide was collected in compliance with applicable law, including TCPA and, where applicable, HIPAA.
                 </p>
               </section>
 
@@ -56,7 +57,7 @@ export default function TermsPage() {
               <section>
                 <h2 className="font-semibold text-ink text-lg mb-3">4. Client representations</h2>
                 <p>
-                  By participating in a pilot, the client represents that: (a) leads provided are not protected health information under HIPAA; (b) leads were obtained with appropriate consent for the type of outreach being conducted; (c) the business is not a covered entity under HIPAA.
+                  By participating in a pilot, the client represents that: (a) patient outreach consent evidence exists and is available for review; (b) leads or patient data were obtained with appropriate consent for the type of outreach being conducted; (c) for dental practices, a Business Associate Agreement (BAA) will be executed before any patient data is shared with Jedna Marketing.
                 </p>
               </section>
 
@@ -84,13 +85,17 @@ export default function TermsPage() {
               <section>
                 <h2 className="font-semibold text-ink text-lg mb-3">8. Contact</h2>
                 <p>
-                  Jedna Marketing LLC · <a href="mailto:legal@jednamarketing.com" className="text-revive hover:underline">legal@jednamarketing.com</a> · <a href="tel:+12202243108" className="text-revive hover:underline">+1 (220) 224-3108</a>
+                  Jedna Marketing LLC ·{" "}
+                  <a href="mailto:legal@jednamarketing.com" className="text-revive hover:underline">legal@jednamarketing.com</a>
+                  {" "}·{" "}
+                  <a href="tel:+12202243108" className="text-revive hover:underline">+1 (220) 224-3108</a>
                 </p>
               </section>
             </div>
           </div>
         </div>
       </main>
+      <Footer />
     </>
   );
 }

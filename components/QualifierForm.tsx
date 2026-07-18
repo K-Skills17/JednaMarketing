@@ -1,39 +1,42 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 
-type FormState = "idle" | "qualified" | "waitlist" | "submitted";
+type FormState = "idle" | "qualified" | "waitlist";
 
 const DISQUALIFY_RULES = {
-  leads: ["<300"],
-  ticket: ["<$200"],
+  patients: ["<300"],
+  ticket: ["<$500"],
 };
+
+const SMS_CONSENT_TEXT =
+  "I agree to receive SMS text messages from Jedna Marketing about my inquiry, appointment scheduling, and practice-growth updates at the phone number provided. Consent is not a condition of purchase. Message frequency varies. Message & data rates may apply. Reply STOP to opt out or HELP for help.";
 
 export default function QualifierForm() {
   const [form, setForm] = useState({
     practiceType: "",
-    leads: "",
+    patients: "",
     ticket: "",
     email: "",
+    phone: "",
+    smsConsent: false,
   });
   const [state, setState] = useState<FormState>("idle");
   const [loading, setLoading] = useState(false);
 
   const isDisqualified =
-    DISQUALIFY_RULES.leads.includes(form.leads) ||
+    DISQUALIFY_RULES.patients.includes(form.patients) ||
     DISQUALIFY_RULES.ticket.includes(form.ticket);
 
-  const isComplete =
-    form.practiceType && form.leads && form.ticket && form.email;
+  const isComplete = form.practiceType && form.patients && form.ticket && form.email;
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!isComplete) return;
 
     if (typeof window !== "undefined" && (window as any).gtag) {
-      (window as any).gtag("event", "qualifier_completed", {
-        qualified: !isDisqualified,
-      });
+      (window as any).gtag("event", "qualifier_completed", { qualified: !isDisqualified });
     }
 
     if (isDisqualified) {
@@ -57,7 +60,7 @@ export default function QualifierForm() {
         </div>
         <h3 className="font-display font-bold text-xl text-ink mb-2">Not yet a fit — but noted.</h3>
         <p className="text-muted text-sm leading-relaxed">
-          The Revive™ system works best with 300+ dormant leads and a ticket above $200. You&apos;re on the waitlist — we&apos;ll reach out when we expand the program or when your database grows.
+          The Revive™ system works best with 300+ unscheduled patients and a treatment value above $500. You&apos;re on the list — we&apos;ll reach out when the numbers are a fit.
         </p>
       </div>
     );
@@ -68,7 +71,7 @@ export default function QualifierForm() {
       <div className="space-y-8">
         <div className="bg-revive/10 border border-revive/30 rounded-sm p-5 text-center">
           <p className="text-revive font-semibold text-sm">
-            You qualify. Pick a time below — bring nothing, we&apos;ll walk you through the lead export live.
+            You qualify. Pick a time below — bring nothing, we&apos;ll count your unscheduled patients live on the call.
           </p>
         </div>
         {/* Calendar embed placeholder */}
@@ -82,7 +85,6 @@ export default function QualifierForm() {
               <p className="text-xs mt-1 opacity-60">Replace with Cal.com or Calendly embed</p>
               {/* Replace this div with:
                * <iframe src="https://cal.com/jedna-marketing/reactivation-audit" ... />
-               * or Calendly inline widget
                */}
             </div>
           </div>
@@ -105,23 +107,23 @@ export default function QualifierForm() {
           className="w-full border border-ink/20 rounded-sm px-4 py-3 text-ink bg-paper focus:outline-none focus:ring-2 focus:ring-revive text-sm"
         >
           <option value="">Select practice type</option>
-          <option>Med spa</option>
-          <option>Aesthetics clinic</option>
-          <option>Chiropractic</option>
-          <option>IV therapy</option>
-          <option>Weight loss clinic</option>
-          <option>Other</option>
+          <option>General dentistry</option>
+          <option>Orthodontics</option>
+          <option>Implant-focused</option>
+          <option>Pediatric dentistry</option>
+          <option>Multi-location group</option>
+          <option>Other specialty</option>
         </select>
       </div>
 
       <div>
-        <label htmlFor="leads" className="block text-sm font-medium text-ink mb-1.5">
-          Leads in your CRM or ad account <span className="text-revive">*</span>
+        <label htmlFor="patients" className="block text-sm font-medium text-ink mb-1.5">
+          Unscheduled &amp; lapsed patients in your PMS/CRM <span className="text-revive">*</span>
         </label>
         <select
-          id="leads"
-          value={form.leads}
-          onChange={(e) => setForm((f) => ({ ...f, leads: e.target.value }))}
+          id="patients"
+          value={form.patients}
+          onChange={(e) => setForm((f) => ({ ...f, patients: e.target.value }))}
           required
           className="w-full border border-ink/20 rounded-sm px-4 py-3 text-ink bg-paper focus:outline-none focus:ring-2 focus:ring-revive text-sm"
         >
@@ -131,16 +133,16 @@ export default function QualifierForm() {
           <option value="1,000–5,000">1,000–5,000</option>
           <option value="5,000+">5,000+</option>
         </select>
-        {form.leads === "<300" && (
+        {form.patients === "<300" && (
           <p className="text-sm text-amber-600 mt-1.5">
-            We reactivate existing leads — under 300 may not be enough volume for a pilot.
+            Under 300 may not generate enough pilot volume — we&apos;ll check on the call.
           </p>
         )}
       </div>
 
       <div>
         <label htmlFor="ticket" className="block text-sm font-medium text-ink mb-1.5">
-          Average ticket <span className="text-revive">*</span>
+          Average treatment value <span className="text-revive">*</span>
         </label>
         <select
           id="ticket"
@@ -150,14 +152,14 @@ export default function QualifierForm() {
           className="w-full border border-ink/20 rounded-sm px-4 py-3 text-ink bg-paper focus:outline-none focus:ring-2 focus:ring-revive text-sm"
         >
           <option value="">Select range</option>
-          <option value="<$200">&lt;$200</option>
-          <option value="$200–$500">$200–$500</option>
+          <option value="<$500">&lt;$500</option>
           <option value="$500–$1,500">$500–$1,500</option>
-          <option value="$1,500+">$1,500+</option>
+          <option value="$1,500–$5,000">$1,500–$5,000</option>
+          <option value="$5,000+">$5,000+</option>
         </select>
-        {form.ticket === "<$200" && (
+        {form.ticket === "<$500" && (
           <p className="text-sm text-amber-600 mt-1.5">
-            Performance pricing works best at tickets above $200.
+            Performance pricing works best at treatment values above $500. We&apos;ll discuss on the call.
           </p>
         )}
       </div>
@@ -176,6 +178,43 @@ export default function QualifierForm() {
           className="w-full border border-ink/20 rounded-sm px-4 py-3 text-ink bg-paper focus:outline-none focus:ring-2 focus:ring-revive text-sm placeholder:text-muted-light"
         />
       </div>
+
+      <div>
+        <label htmlFor="phone" className="block text-sm font-medium text-ink mb-1.5">
+          Mobile phone <span className="text-muted-light font-normal">(optional)</span>
+        </label>
+        <input
+          id="phone"
+          type="tel"
+          value={form.phone}
+          onChange={(e) => setForm((f) => ({ ...f, phone: e.target.value }))}
+          placeholder="+1 (555) 000-0000"
+          className="w-full border border-ink/20 rounded-sm px-4 py-3 text-ink bg-paper focus:outline-none focus:ring-2 focus:ring-revive text-sm placeholder:text-muted-light"
+        />
+      </div>
+
+      {form.phone && (
+        <div className="flex items-start gap-3">
+          <input
+            id="sms-consent-audit"
+            type="checkbox"
+            checked={form.smsConsent}
+            onChange={(e) => {
+              setForm((f) => ({ ...f, smsConsent: e.target.checked }));
+              if (e.target.checked && typeof window !== "undefined" && (window as any).gtag) {
+                (window as any).gtag("event", "sms_optin_checked", { source: "audit" });
+              }
+            }}
+            className="mt-0.5 w-4 h-4 accent-revive flex-shrink-0 cursor-pointer"
+          />
+          <label htmlFor="sms-consent-audit" className="text-xs text-muted leading-relaxed cursor-pointer">
+            I agree to receive SMS text messages from <strong>Jedna Marketing</strong> about my inquiry, appointment scheduling, and practice-growth updates at the phone number provided. Consent is not a condition of purchase. Message frequency varies. Message &amp; data rates may apply. Reply <strong>STOP</strong> to opt out or <strong>HELP</strong> for help. See our{" "}
+            <Link href="/privacy" className="underline underline-offset-2 hover:text-revive transition-colors">Privacy Policy</Link>
+            {" "}and{" "}
+            <Link href="/sms-terms" className="underline underline-offset-2 hover:text-revive transition-colors">SMS Terms</Link>.
+          </label>
+        </div>
+      )}
 
       <button
         type="submit"

@@ -32,13 +32,14 @@ function formatCurrency(n: number) {
   return `$${n}`;
 }
 
-export default function DeadLeadCalculator() {
-  const [leads, setLeads] = useState(500);
-  const [ticket, setTicket] = useState(500);
+// Renamed to UnscheduledRevenueCalculator for dental; file kept as DeadLeadCalculator for import compatibility.
+export default function UnscheduledRevenueCalculator() {
+  const [patients, setPatients] = useState(400);
+  const [ticket, setTicket] = useState(1200);
   const [interacted, setInteracted] = useState(false);
 
-  const lowRevenue = Math.round(leads * 0.03 * ticket);
-  const highRevenue = Math.round(leads * 0.05 * ticket);
+  const lowRevenue = Math.round(patients * 0.03 * ticket);
+  const highRevenue = Math.round(patients * 0.05 * ticket);
 
   const animatedLow = useCountUp(interacted ? lowRevenue : 0, 1000);
   const animatedHigh = useCountUp(interacted ? highRevenue : 0, 1200);
@@ -54,75 +55,80 @@ export default function DeadLeadCalculator() {
 
   return (
     <div className="bg-ink-light rounded-sm border border-white/10 p-8 md:p-12 mt-12">
-      <p className="eyebrow mb-4">Dead Lead Calculator</p>
+      <p className="eyebrow mb-4">Unscheduled Revenue Calculator</p>
       <p className="text-paper/70 text-sm mb-8 max-w-prose">
-        We assume only 3–5% rebook — industry dead-lead studies run higher. Move the sliders and see what&apos;s sitting in your CRM right now.
+        We assume only 3–5% rebook — conservative by industry standards. Move the sliders to see what&apos;s sitting in your practice software right now.
       </p>
 
       <div className="grid md:grid-cols-2 gap-10 mb-10">
-        {/* Dormant leads slider */}
+        {/* Patient count slider */}
         <div>
           <div className="flex justify-between items-baseline mb-3">
-            <label htmlFor="leads-slider" className="text-paper/80 text-sm font-medium">
-              Dormant leads
+            <label htmlFor="patients-slider" className="text-paper/80 text-sm font-medium">
+              Unscheduled &amp; lapsed patients
             </label>
-            <span className="tabular text-paper font-bold text-2xl">{leads.toLocaleString()}</span>
+            <span className="tabular text-paper font-bold text-2xl">{patients.toLocaleString()}</span>
           </div>
           <input
-            id="leads-slider"
+            id="patients-slider"
             type="range"
-            min={100}
-            max={5000}
-            step={50}
-            value={leads}
+            min={50}
+            max={2000}
+            step={25}
+            value={patients}
             onChange={(e) => {
-              setLeads(Number(e.target.value));
+              setPatients(Number(e.target.value));
               handleInteract();
             }}
             className="w-full h-1.5 appearance-none bg-white/20 rounded-full cursor-pointer accent-revive"
-            aria-label={`Dormant leads: ${leads}`}
+            aria-label={`Unscheduled patients: ${patients}`}
           />
           <div className="flex justify-between text-xs text-muted-light mt-1.5">
-            <span>100</span>
-            <span>5,000</span>
+            <span>50</span>
+            <span>2,000</span>
           </div>
         </div>
 
-        {/* Average ticket slider */}
+        {/* Average treatment value slider */}
         <div>
           <div className="flex justify-between items-baseline mb-3">
             <label htmlFor="ticket-slider" className="text-paper/80 text-sm font-medium">
-              Average ticket
+              Average treatment value
             </label>
             <span className="tabular text-paper font-bold text-2xl">${ticket.toLocaleString()}</span>
           </div>
           <input
             id="ticket-slider"
             type="range"
-            min={100}
-            max={2500}
-            step={50}
+            min={200}
+            max={5000}
+            step={100}
             value={ticket}
             onChange={(e) => {
               setTicket(Number(e.target.value));
               handleInteract();
             }}
             className="w-full h-1.5 appearance-none bg-white/20 rounded-full cursor-pointer accent-revive"
-            aria-label={`Average ticket: $${ticket}`}
+            aria-label={`Average treatment value: $${ticket}`}
           />
           <div className="flex justify-between text-xs text-muted-light mt-1.5">
-            <span>$100</span>
-            <span>$2,500</span>
+            <span>$200</span>
+            <span>$5,000</span>
           </div>
         </div>
       </div>
 
       {/* Result */}
       <div className="border-t border-white/10 pt-8">
-        <p className="text-paper/60 text-xs uppercase tracking-widest mb-2">Recoverable revenue locked in your CRM</p>
+        <p className="text-paper/60 text-xs uppercase tracking-widest mb-2">
+          Recoverable revenue sitting in your practice software right now
+        </p>
         <div className="flex items-baseline gap-3 mb-2">
           {interacted ? (
-            <span className="tabular font-display font-bold text-revive" style={{ fontSize: "clamp(2.5rem, 5vw, 4rem)", lineHeight: 1 }}>
+            <span
+              className="tabular font-display font-bold text-revive"
+              style={{ fontSize: "clamp(2.5rem, 5vw, 4rem)", lineHeight: 1 }}
+            >
               {formatCurrency(animatedLow)} – {formatCurrency(animatedHigh)}
             </span>
           ) : (
@@ -159,7 +165,7 @@ export default function DeadLeadCalculator() {
             Get the exact number in your audit
           </Link>
           <p className="text-muted-light text-xs mt-3">
-            20 minutes. We count every recoverable lead live on the call.
+            20 minutes. We count every recoverable patient live on the call.
           </p>
         </div>
       )}
