@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -67,13 +68,15 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
         />
-        {/* Jedna chatbot widget */}
-        <script
-          src="https://athletic-serenity-production.up.railway.app/api/webchat/22a6886f-1aa7-4dfb-baab-d95cb0f890ea/widget.js"
-          async
-        />
       </head>
-      <body>{children}</body>
+      <body>
+        {children}
+        {/* Jedna chatbot widget */}
+        <Script
+          src="https://athletic-serenity-production.up.railway.app/api/webchat/22a6886f-1aa7-4dfb-baab-d95cb0f890ea/widget.js"
+          strategy="afterInteractive"
+        />
+      </body>
     </html>
   );
 }
