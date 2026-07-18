@@ -15,9 +15,8 @@ export default function Footer() {
               Performance-only patient reactivation for dental practices. Pay per booked appointment. No retainer, no setup fee.
             </p>
             <div className="mt-4 text-paper/30 text-xs space-y-1">
-              <p>Jedna Marketing LLC</p>
-              {/* TODO: Replace with actual business address */}
-              <p>[Business Address] · [City, State ZIP]</p>
+              <p>Jedna LLC</p>
+              <p>4 Peddlers Row Unit 216 · Newark, DE 19702</p>
               <a href="tel:+12202243108" className="hover:text-revive transition-colors">
                 +1 (220) 224-3108
               </a>
@@ -64,7 +63,7 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-white/10 pt-6 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 text-paper/25 text-xs">
-          <p>© {new Date().getFullYear()} Jedna Marketing LLC. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Jedna LLC. All rights reserved.</p>
           <p>
             Carriers are not liable for delayed or undelivered messages.{" "}
             <Link href="/sms-terms" className="hover:text-revive transition-colors underline underline-offset-2">

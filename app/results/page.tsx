@@ -5,9 +5,9 @@ import Footer from "@/components/Footer";
 import StickyMobileCTA from "@/components/StickyMobileCTA";
 
 export const metadata: Metadata = {
-  title: "Results — Jedna Marketing",
+  title: "Results — Jedna LLC",
   description:
-    "Documented dental patient reactivation results from Jedna Marketing's operations. Real numbers, verifiable cases — no fabricated testimonials.",
+    "Documented dental patient reactivation results from Jedna LLC's operations. Real numbers, verifiable cases — no fabricated testimonials.",
 };
 
 export default function ResultsPage() {

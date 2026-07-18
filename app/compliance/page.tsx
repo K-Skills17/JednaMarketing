@@ -4,11 +4,11 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "TCPA & Consent Standards — Jedna Marketing",
+  title: "TCPA & Consent Standards — Jedna LLC",
   description:
-    "Jedna Marketing's documented TCPA compliance standards for dental patient reactivation campaigns. Every outreach campaign is consent-checked before a single message is sent.",
+    "Jedna LLC's documented TCPA compliance standards for dental patient reactivation campaigns. Every outreach campaign is consent-checked before a single message is sent.",
   openGraph: {
-    title: "TCPA & Consent Standards — Jedna Marketing",
+    title: "TCPA & Consent Standards — Jedna LLC",
     description:
       "Documented TCPA compliance standards for dental patient reactivation. Published for transparency.",
   },
@@ -38,7 +38,7 @@ export default function CompliancePage() {
               TCPA &amp; Consent Compliance Standards
             </h1>
             <p className="text-muted text-sm mb-10">
-              Jedna Marketing LLC · Last updated: {LAST_UPDATED}
+              Jedna LLC LLC · Last updated: {LAST_UPDATED}
             </p>
 
             <div className="max-w-none">
@@ -122,7 +122,7 @@ export default function CompliancePage() {
                   Dental practices are typically HIPAA-covered entities. Patient outreach campaigns we run on behalf of dental clients involve Protected Health Information (PHI) and are governed by:
                 </p>
                 <ul>
-                  <li>A signed Business Associate Agreement (BAA) between Jedna Marketing and the client practice</li>
+                  <li>A signed Business Associate Agreement (BAA) between Jedna LLC and the client practice</li>
                   <li>HIPAA-compliant vendor stack for all patient data processing and storage</li>
                   <li>Patient consent evidence registered under the client&apos;s own A2P campaign use case — separate from Jedna&apos;s B2B campaign</li>
                 </ul>
@@ -169,7 +169,7 @@ export default function CompliancePage() {
                   If you have questions about our compliance framework, or if you believe an error has occurred in your outreach campaign, contact us directly. We will respond within one business day.
                 </p>
                 <p>
-                  <a href="mailto:compliance@jednamarketing.com" className="text-revive hover:underline">compliance@jednamarketing.com</a>
+                  <a href="mailto:contact@jednamarketing.com" className="text-revive hover:underline">contact@jednamarketing.com</a>
                   {" "}·{" "}
                   <a href="tel:+12202243108" className="text-revive hover:underline">+1 (220) 224-3108</a>
                 </p>

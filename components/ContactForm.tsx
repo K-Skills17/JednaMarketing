@@ -155,7 +155,7 @@ export default function ContactForm() {
           className="mt-0.5 w-4 h-4 accent-revive flex-shrink-0 cursor-pointer"
         />
         <label htmlFor="sms-consent-contact" className="text-xs text-muted leading-relaxed cursor-pointer">
-          I agree to receive SMS text messages from <strong>Jedna Marketing</strong> about my inquiry, appointment scheduling, and practice-growth updates at the phone number provided. Consent is not a condition of purchase. Message frequency varies. Message &amp; data rates may apply. Reply <strong>STOP</strong> to opt out or <strong>HELP</strong> for help. See our{" "}
+          I agree to receive SMS text messages from <strong>Jedna LLC</strong> about my inquiry, appointment scheduling, and practice-growth updates at the phone number provided. Consent is not a condition of purchase. Message frequency varies. Message &amp; data rates may apply. Reply <strong>STOP</strong> to opt out or <strong>HELP</strong> for help. See our{" "}
           <Link href="/privacy" className="underline underline-offset-2 hover:text-revive transition-colors">Privacy Policy</Link>
           {" "}and{" "}
           <Link href="/sms-terms" className="underline underline-offset-2 hover:text-revive transition-colors">SMS Terms</Link>.
@@ -165,7 +165,7 @@ export default function ContactForm() {
       {state === "error" && (
         <p className="text-sm text-red-600">
           Something went wrong — please try again or email us at{" "}
-          <a href="mailto:hello@jednamarketing.com" className="underline">hello@jednamarketing.com</a>.
+          <a href="mailto:contact@jednamarketing.com" className="underline">contact@jednamarketing.com</a>.
         </p>
       )}
 

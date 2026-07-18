@@ -4,8 +4,8 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy — Jedna Marketing",
-  description: "Jedna Marketing LLC privacy policy, including SMS/text messaging data practices.",
+  title: "Privacy Policy — Jedna LLC",
+  description: "Jedna LLC privacy policy, including SMS/text messaging data practices.",
 };
 
 const LAST_UPDATED = "July 2026";
@@ -30,7 +30,7 @@ export default function PrivacyPage() {
             <h1 className="font-display font-black text-ink mb-2" style={{ fontSize: "clamp(1.75rem, 3.5vw, 2.5rem)", lineHeight: 1.1, letterSpacing: "-0.025em" }}>
               Privacy Policy
             </h1>
-            <p className="text-muted text-sm mb-10">Jedna Marketing LLC · Last updated: {LAST_UPDATED}</p>
+            <p className="text-muted text-sm mb-10">Jedna LLC · Last updated: {LAST_UPDATED}</p>
 
             <div className="space-y-8 text-muted leading-relaxed text-base">
               <section>
@@ -50,21 +50,21 @@ export default function PrivacyPage() {
               <section>
                 <h2 className="font-semibold text-ink text-lg mb-3">3. SMS/Text Messaging</h2>
                 <p>
-                  When you opt in to receive text messages from Jedna Marketing, we collect your mobile phone number and your consent record (date, time, and source of opt-in). We use this information solely to send the messages you consented to receive.
+                  When you opt in to receive text messages from Jedna LLC, we collect your mobile phone number and your consent record (date, time, and source of opt-in). We use this information solely to send the messages you consented to receive.
                 </p>
                 <p className="mt-3">
                   <strong>No mobile information will be shared with third parties or affiliates for marketing or promotional purposes.</strong> Information sharing to subcontractors in support services, such as customer service, is permitted only as necessary to deliver the messaging service itself. All other use categories described in this Privacy Policy <strong>exclude text messaging originator opt-in data and consent; this information will not be shared with, or sold to, any third parties.</strong>
                 </p>
                 <p className="mt-3">
                   You may opt out at any time by replying <strong>STOP</strong> to any message. Reply <strong>HELP</strong> for assistance or contact us at{" "}
-                  <a href="mailto:hello@jednamarketing.com" className="text-revive hover:underline">hello@jednamarketing.com</a>. Message frequency varies. Message and data rates may apply.
+                  <a href="mailto:contact@jednamarketing.com" className="text-revive hover:underline">contact@jednamarketing.com</a>. Message frequency varies. Message and data rates may apply.
                 </p>
               </section>
 
               <section>
                 <h2 className="font-semibold text-ink text-lg mb-3">4. Patient data from dental practices</h2>
                 <p>
-                  If you participate in a Revive™ pilot, you will share a patient/lead export with Jedna Marketing for the purpose of reactivation outreach. For dental practices (which are typically HIPAA-covered entities), patient-facing campaigns are governed by a signed Business Associate Agreement (BAA) and run on a HIPAA-compliant vendor stack. Patient data is used solely for your campaign, is never shared with other clients, and is deleted upon campaign completion or upon your request. Consent for patient outreach is registered separately under your practice&apos;s A2P campaign — distinct from Jedna&apos;s B2B messaging to practice owners.
+                  If you participate in a Revive™ pilot, you will share a patient/lead export with Jedna LLC for the purpose of reactivation outreach. For dental practices (which are typically HIPAA-covered entities), patient-facing campaigns are governed by a signed Business Associate Agreement (BAA) and run on a HIPAA-compliant vendor stack. Patient data is used solely for your campaign, is never shared with other clients, and is deleted upon campaign completion or upon your request. Consent for patient outreach is registered separately under your practice&apos;s A2P campaign — distinct from Jedna&apos;s B2B messaging to practice owners.
                 </p>
               </section>
 
@@ -92,8 +92,8 @@ export default function PrivacyPage() {
               <section>
                 <h2 className="font-semibold text-ink text-lg mb-3">8. Contact</h2>
                 <p>
-                  Jedna Marketing LLC ·{" "}
-                  <a href="mailto:privacy@jednamarketing.com" className="text-revive hover:underline">privacy@jednamarketing.com</a>
+                  Jedna LLC ·{" "}
+                  <a href="mailto:contact@jednamarketing.com" className="text-revive hover:underline">contact@jednamarketing.com</a>
                   {" "}·{" "}
                   <a href="tel:+12202243108" className="text-revive hover:underline">+1 (220) 224-3108</a>
                 </p>

@@ -5,7 +5,7 @@ import QualifierForm from "@/components/QualifierForm";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Book Your Reactivation Audit — Jedna Marketing",
+  title: "Book Your Reactivation Audit — Jedna LLC",
   description:
     "20 minutes. We count your unscheduled patients and show you the revenue math. Bring nothing — we walk you through the database live if you want.",
 };

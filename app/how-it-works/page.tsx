@@ -5,7 +5,7 @@ import Footer from "@/components/Footer";
 import StickyMobileCTA from "@/components/StickyMobileCTA";
 
 export const metadata: Metadata = {
-  title: "How Revive™ Works — Jedna Marketing",
+  title: "How Revive™ Works — Jedna LLC",
   description:
     "The Revive™ patient reactivation system in depth: database audit, compliant outreach, and direct-to-calendar booking for dental practices. Performance-only pricing.",
 };

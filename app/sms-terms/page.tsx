@@ -4,8 +4,8 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "SMS Terms & Conditions — Jedna Marketing",
-  description: "SMS/text messaging terms and conditions for Jedna Marketing LLC.",
+  title: "SMS Terms & Conditions — Jedna LLC",
+  description: "SMS/text messaging terms and conditions for Jedna LLC.",
 };
 
 const LAST_UPDATED = "July 2026";
@@ -30,18 +30,18 @@ export default function SmsTermsPage() {
             <h1 className="font-display font-black text-ink mb-2" style={{ fontSize: "clamp(1.75rem, 3.5vw, 2.5rem)", lineHeight: 1.1, letterSpacing: "-0.025em" }}>
               SMS Terms &amp; Conditions
             </h1>
-            <p className="text-muted text-sm mb-10">Jedna Marketing LLC · Last updated: {LAST_UPDATED}</p>
+            <p className="text-muted text-sm mb-10">Jedna LLC · Last updated: {LAST_UPDATED}</p>
 
             <div className="space-y-8 text-muted leading-relaxed text-base">
               <section>
                 <h2 className="font-semibold text-ink text-lg mb-3">1. Program name</h2>
-                <p>Jedna Marketing SMS Notifications.</p>
+                <p>Jedna LLC SMS Notifications.</p>
               </section>
 
               <section>
                 <h2 className="font-semibold text-ink text-lg mb-3">2. Program description</h2>
                 <p>
-                  By opting in, you agree to receive text messages from Jedna Marketing regarding your inquiries, appointment scheduling and reminders, and practice-growth information. This program provides B2B messaging to dental practice owners and decision-makers who have submitted an inquiry through jednamarketing.com.
+                  By opting in, you agree to receive text messages from Jedna LLC regarding your inquiries, appointment scheduling and reminders, and practice-growth information. This program provides B2B messaging to dental practice owners and decision-makers who have submitted an inquiry through jednamarketing.com.
                 </p>
               </section>
 
@@ -55,7 +55,7 @@ export default function SmsTermsPage() {
               <section>
                 <h2 className="font-semibold text-ink text-lg mb-3">4. Fees</h2>
                 <p>
-                  Message and data rates may apply according to your mobile carrier plan. Jedna Marketing does not charge for SMS messages.
+                  Message and data rates may apply according to your mobile carrier plan. Jedna LLC does not charge for SMS messages.
                 </p>
               </section>
 
@@ -70,7 +70,7 @@ export default function SmsTermsPage() {
                 <h2 className="font-semibold text-ink text-lg mb-3">6. Help</h2>
                 <p>
                   Reply <strong>HELP</strong> to any message for assistance, or contact us at:{" "}
-                  <a href="mailto:hello@jednamarketing.com" className="text-revive hover:underline">hello@jednamarketing.com</a>
+                  <a href="mailto:info@jednamarketing.com" className="text-revive hover:underline">info@jednamarketing.com</a>
                   {" "}·{" "}
                   <a href="tel:+12202243108" className="text-revive hover:underline">+1 (220) 224-3108</a>
                 </p>
@@ -98,19 +98,19 @@ export default function SmsTermsPage() {
                   <div className="bg-ink/5 border border-ink/10 rounded-sm p-4">
                     <p className="text-xs text-muted-light uppercase tracking-widest mb-2">Opt-in confirmation</p>
                     <p className="text-sm text-ink font-mono leading-relaxed">
-                      Jedna Marketing: You&apos;re opted in to updates about your practice inquiry. Msg frequency varies. Msg &amp; data rates may apply. Reply HELP for help, STOP to opt out.
+                      Jedna LLC: You&apos;re opted in to updates about your practice inquiry. Msg frequency varies. Msg &amp; data rates may apply. Reply HELP for help, STOP to opt out.
                     </p>
                   </div>
                   <div className="bg-ink/5 border border-ink/10 rounded-sm p-4">
                     <p className="text-xs text-muted-light uppercase tracking-widest mb-2">Appointment / transactional</p>
                     <p className="text-sm text-ink font-mono leading-relaxed">
-                      Hi [FirstName], it&apos;s [Rep] from Jedna Marketing. Your Reactivation Audit is confirmed for [Day, Time ET]. Reschedule if needed: [link]. Reply STOP to opt out.
+                      Hi [FirstName], it&apos;s [Rep] from Jedna LLC. Your Reactivation Audit is confirmed for [Day, Time ET]. Reschedule if needed: [link]. Reply STOP to opt out.
                     </p>
                   </div>
                   <div className="bg-ink/5 border border-ink/10 rounded-sm p-4">
                     <p className="text-xs text-muted-light uppercase tracking-widest mb-2">Follow-up / marketing</p>
                     <p className="text-sm text-ink font-mono leading-relaxed">
-                      Jedna Marketing: [FirstName], based on your numbers, your practice may have $[XX,XXX]+ in unscheduled treatment we can help recover. Want the 15-min walkthrough? [link] Reply STOP to opt out.
+                      Jedna LLC: [FirstName], based on your numbers, your practice may have $[XX,XXX]+ in unscheduled treatment we can help recover. Want the 15-min walkthrough? [link] Reply STOP to opt out.
                     </p>
                   </div>
                 </div>
@@ -119,11 +119,11 @@ export default function SmsTermsPage() {
               <section>
                 <h2 className="font-semibold text-ink text-lg mb-3">10. Contact</h2>
                 <p>
-                  Jedna Marketing LLC ·{" "}
-                  <a href="mailto:hello@jednamarketing.com" className="text-revive hover:underline">hello@jednamarketing.com</a>
+                  Jedna LLC ·{" "}
+                  <a href="mailto:info@jednamarketing.com" className="text-revive hover:underline">info@jednamarketing.com</a>
                   {" "}·{" "}
                   <a href="tel:+12202243108" className="text-revive hover:underline">+1 (220) 224-3108</a>
-                  {" "}·{" "}[Business Address] · [City, State ZIP]
+                  {" "}·{" "}4 Peddlers Row Unit 216, Newark, DE 19702
                 </p>
               </section>
             </div>

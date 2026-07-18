@@ -5,9 +5,9 @@ import Footer from "@/components/Footer";
 import ContactForm from "@/components/ContactForm";
 
 export const metadata: Metadata = {
-  title: "Contact Jedna Marketing",
+  title: "Contact Jedna LLC",
   description:
-    "Talk to Jedna Marketing about patient reactivation for your dental practice. Prefer not to book a call yet? Leave your details and we'll reach out.",
+    "Talk to Jedna LLC about patient reactivation for your dental practice. Prefer not to book a call yet? Leave your details and we'll reach out.",
 };
 
 export default function ContactPage() {
@@ -28,13 +28,13 @@ export default function ContactPage() {
 
             <div className="flex flex-wrap gap-6 mb-12 text-sm">
               <a
-                href="mailto:hello@jednamarketing.com"
+                href="mailto:contact@jednamarketing.com"
                 className="inline-flex items-center gap-2 text-ink font-medium hover:text-revive transition-colors"
               >
                 <svg className="w-4 h-4 text-revive" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
-                hello@jednamarketing.com
+                contact@jednamarketing.com
               </a>
               <a
                 href="tel:+12202243108"
@@ -75,8 +75,8 @@ export default function ContactPage() {
                 <p className="text-muted text-sm leading-relaxed">
                   Questions about our TCPA standards, HIPAA / BAA requirements, or how we handle consent? Email compliance directly.
                 </p>
-                <a href="mailto:compliance@jednamarketing.com" className="inline-block mt-4 text-sm text-revive font-medium hover:underline underline-offset-2">
-                  compliance@jednamarketing.com →
+                <a href="mailto:contact@jednamarketing.com" className="inline-block mt-4 text-sm text-revive font-medium hover:underline underline-offset-2">
+                  contact@jednamarketing.com →
                 </a>
               </div>
             </div>

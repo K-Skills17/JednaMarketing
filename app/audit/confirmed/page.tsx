@@ -4,7 +4,7 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Audit Booked — Jedna Marketing",
+  title: "Audit Booked — Jedna LLC",
   description: "Your Reactivation Audit is confirmed. Here's how to prepare.",
   robots: { index: false, follow: false },
 };

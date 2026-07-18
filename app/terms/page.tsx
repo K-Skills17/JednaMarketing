@@ -4,8 +4,8 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Terms of Service — Jedna Marketing",
-  description: "Jedna Marketing LLC terms of service.",
+  title: "Terms of Service — Jedna LLC",
+  description: "Jedna LLC terms of service.",
 };
 
 const LAST_UPDATED = "July 2026";
@@ -30,13 +30,13 @@ export default function TermsPage() {
             <h1 className="font-display font-black text-ink mb-2" style={{ fontSize: "clamp(1.75rem, 3.5vw, 2.5rem)", lineHeight: 1.1, letterSpacing: "-0.025em" }}>
               Terms of Service
             </h1>
-            <p className="text-muted text-sm mb-10">Jedna Marketing LLC · Last updated: {LAST_UPDATED}</p>
+            <p className="text-muted text-sm mb-10">Jedna LLC · Last updated: {LAST_UPDATED}</p>
 
             <div className="space-y-8 text-muted leading-relaxed text-base">
               <section>
                 <h2 className="font-semibold text-ink text-lg mb-3">1. Services</h2>
                 <p>
-                  Jedna Marketing LLC provides patient reactivation services to dental practices and other health and wellness businesses. Services are described in individual pilot agreements. These terms govern use of the jednamarketing.com website and any inquiry or booking submitted through it.
+                  Jedna LLC provides patient reactivation services to dental practices and other health and wellness businesses. Services are described in individual pilot agreements. These terms govern use of the jednamarketing.com website and any inquiry or booking submitted through it.
                 </p>
               </section>
 
@@ -57,21 +57,21 @@ export default function TermsPage() {
               <section>
                 <h2 className="font-semibold text-ink text-lg mb-3">4. Client representations</h2>
                 <p>
-                  By participating in a pilot, the client represents that: (a) patient outreach consent evidence exists and is available for review; (b) leads or patient data were obtained with appropriate consent for the type of outreach being conducted; (c) for dental practices, a Business Associate Agreement (BAA) will be executed before any patient data is shared with Jedna Marketing.
+                  By participating in a pilot, the client represents that: (a) patient outreach consent evidence exists and is available for review; (b) leads or patient data were obtained with appropriate consent for the type of outreach being conducted; (c) for dental practices, a Business Associate Agreement (BAA) will be executed before any patient data is shared with Jedna LLC.
                 </p>
               </section>
 
               <section>
                 <h2 className="font-semibold text-ink text-lg mb-3">5. Limitation of liability</h2>
                 <p>
-                  Jedna Marketing&apos;s total liability for any claim arising from services shall not exceed the fees paid under the applicable pilot agreement. We are not liable for indirect, incidental, or consequential damages.
+                  Jedna LLC&apos;s total liability for any claim arising from services shall not exceed the fees paid under the applicable pilot agreement. We are not liable for indirect, incidental, or consequential damages.
                 </p>
               </section>
 
               <section>
                 <h2 className="font-semibold text-ink text-lg mb-3">6. Governing law</h2>
                 <p>
-                  These terms are governed by the laws of the United States and the state in which Jedna Marketing LLC is incorporated. Any disputes shall be resolved through binding arbitration.
+                  These terms are governed by the laws of the United States and the state in which Jedna LLC is incorporated. Any disputes shall be resolved through binding arbitration.
                 </p>
               </section>
 
@@ -85,8 +85,8 @@ export default function TermsPage() {
               <section>
                 <h2 className="font-semibold text-ink text-lg mb-3">8. Contact</h2>
                 <p>
-                  Jedna Marketing LLC ·{" "}
-                  <a href="mailto:legal@jednamarketing.com" className="text-revive hover:underline">legal@jednamarketing.com</a>
+                  Jedna LLC ·{" "}
+                  <a href="mailto:contact@jednamarketing.com" className="text-revive hover:underline">contact@jednamarketing.com</a>
                   {" "}·{" "}
                   <a href="tel:+12202243108" className="text-revive hover:underline">+1 (220) 224-3108</a>
                 </p>

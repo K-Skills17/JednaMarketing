@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from "next/server";
 // The exact consent text stored as a legal artifact.
 // Version this string whenever the checkbox label changes.
 const CONSENT_TEXT_V1 =
-  "I agree to receive SMS text messages from Jedna Marketing about my inquiry, appointment scheduling, and practice-growth updates at the phone number provided. Consent is not a condition of purchase. Message frequency varies. Message & data rates may apply. Reply STOP to opt out or HELP for help.";
+  "I agree to receive SMS text messages from Jedna LLC about my inquiry, appointment scheduling, and practice-growth updates at the phone number provided. Consent is not a condition of purchase. Message frequency varies. Message & data rates may apply. Reply STOP to opt out or HELP for help.";
 
 export async function POST(request: NextRequest) {
   let body: Record<string, unknown>;

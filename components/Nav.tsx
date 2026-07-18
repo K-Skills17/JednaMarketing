@@ -22,10 +22,8 @@ export default function Nav() {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          scrolled || menuOpen
-            ? "bg-ink/97 backdrop-blur-sm shadow-lg shadow-black/20"
-            : "bg-transparent"
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-ink/97 backdrop-blur-sm ${
+          scrolled || menuOpen ? "shadow-lg shadow-black/20" : ""
         }`}
       >
         <div className="container-site">
@@ -34,7 +32,7 @@ export default function Nav() {
             <Link
               href="/"
               className="flex items-center gap-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-revive rounded"
-              aria-label="Jedna Marketing — home"
+              aria-label="Jedna LLC — home"
               onClick={() => setMenuOpen(false)}
             >
               <span className="font-display font-bold text-xl text-paper tracking-tight">jedna</span>
