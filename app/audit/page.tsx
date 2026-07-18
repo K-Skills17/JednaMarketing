@@ -5,12 +5,19 @@ import QualifierForm from "@/components/QualifierForm";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Book Your Reactivation Audit — Jedna LLC",
+  title: "Book Your Practice X-Ray — Jedna LLC",
   description:
-    "20 minutes. We count your unscheduled patients and show you the revenue math. Bring nothing — we walk you through the database live if you want.",
+    "30 minutes. A senior operator walks through your practice's six growth engines and shows you exactly where production is leaking — and what to fix first. Yours to keep.",
 };
 
-export default function AuditPage() {
+export default async function AuditPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ src?: string }>;
+}) {
+  const { src } = await searchParams;
+  const isRevive = src === "revive";
+
   return (
     <>
       <Nav />
@@ -18,7 +25,7 @@ export default function AuditPage() {
         <div className="container-site">
           <div className="max-w-2xl mx-auto">
             <Link
-              href="/"
+              href={isRevive ? "/revive" : "/"}
               className="inline-flex items-center gap-2 text-muted text-sm hover:text-revive transition-colors mb-10 focus:outline-none focus-visible:ring-2 focus-visible:ring-revive rounded"
             >
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -27,22 +34,53 @@ export default function AuditPage() {
               Back
             </Link>
 
-            <p className="eyebrow mb-4">Free · 20 minutes</p>
-            <h1 className="font-display font-black text-ink mb-4" style={{ fontSize: "clamp(2rem, 4vw, 3rem)", lineHeight: 1.08, letterSpacing: "-0.03em" }}>
-              Book your Reactivation Audit
-            </h1>
-            <p className="text-muted text-lg leading-relaxed mb-10">
-              Bring nothing — we&apos;ll walk you through the unscheduled treatment report live if you want the count done on the call.
-            </p>
+            {isRevive ? (
+              <>
+                <p className="eyebrow mb-4">Free · 20 minutes</p>
+                <h1
+                  className="font-display font-black text-ink mb-4"
+                  style={{ fontSize: "clamp(2rem, 4vw, 3rem)", lineHeight: 1.08, letterSpacing: "-0.03em" }}
+                >
+                  Book your Reactivation Audit
+                </h1>
+                <p className="text-muted text-lg leading-relaxed mb-10">
+                  Bring nothing — we&apos;ll walk you through the unscheduled treatment report live if you want the count done on the call.
+                </p>
+              </>
+            ) : (
+              <>
+                <p className="eyebrow mb-4">Free · 30 minutes</p>
+                <h1
+                  className="font-display font-black text-ink mb-4"
+                  style={{ fontSize: "clamp(2rem, 4vw, 3rem)", lineHeight: 1.08, letterSpacing: "-0.03em" }}
+                >
+                  Get your free Practice X-Ray™
+                </h1>
+                <p className="text-muted text-lg leading-relaxed mb-10">
+                  A senior operator walks through your practice&apos;s six growth engines and shows you exactly where production is leaking — and what to fix first. Yours to keep whether you hire us or not.
+                </p>
+              </>
+            )}
 
             <div className="flex flex-wrap gap-4 mb-10">
-              {[
-                "Performance-only pilot",
-                "TCPA-compliant outreach",
-                "5 pilots/month cap",
-                "BAA available for dental practices",
-              ].map((t) => (
-                <span key={t} className="inline-flex items-center gap-1.5 text-xs text-muted border border-ink/10 rounded-full px-3 py-1.5">
+              {(isRevive
+                ? [
+                    "Performance-only pilot",
+                    "TCPA-compliant outreach",
+                    "12 pilots/month cap",
+                    "BAA available for dental practices",
+                  ]
+                : [
+                    "Operator-performed",
+                    "No pitch — diagnosis first",
+                    "12 X-Rays per month",
+                    "Yours to keep",
+                  ]
+              ).map((t) => (
+                <span
+                  key={t}
+                  className="inline-flex items-center gap-1.5 text-xs text-muted border border-ink/10 rounded-full px-3 py-1.5"
+                >
                   <span className="w-1 h-1 rounded-full bg-revive" />
                   {t}
                 </span>
@@ -54,10 +92,21 @@ export default function AuditPage() {
             </div>
 
             <p className="text-xs text-muted text-center mt-6">
-              Under 300 patients or a small database? We&apos;ll tell you honestly on the call.{" "}
-              <Link href="/compliance" className="underline underline-offset-2 hover:text-revive transition-colors">
-                Compliance standards →
-              </Link>
+              {isRevive ? (
+                <>
+                  Under 300 patients or a small database? We&apos;ll tell you honestly on the call.{" "}
+                  <Link href="/compliance" className="underline underline-offset-2 hover:text-revive transition-colors">
+                    Compliance standards →
+                  </Link>
+                </>
+              ) : (
+                <>
+                  Already know you want Revive™ patient reactivation?{" "}
+                  <Link href="/revive" className="underline underline-offset-2 hover:text-revive transition-colors">
+                    Learn about Revive™ →
+                  </Link>
+                </>
+              )}
             </p>
           </div>
         </div>

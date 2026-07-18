@@ -4,7 +4,8 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 
 const NAV_LINKS = [
-  { href: "/how-it-works", label: "How It Works" },
+  { href: "/#system", label: "The System" },
+  { href: "/revive", label: "Revive™" },
   { href: "/results", label: "Results" },
   { href: "/contact", label: "Contact" },
 ];
@@ -55,7 +56,7 @@ export default function Nav() {
             {/* Desktop CTA + mobile hamburger */}
             <div className="flex items-center gap-3">
               <Link href="/audit" className="hidden md:inline-flex btn-primary text-sm py-2.5 px-6">
-                Book Free Audit
+                Get your Practice X-Ray
               </Link>
 
               <button
@@ -93,7 +94,7 @@ export default function Nav() {
             ))}
             <div className="pt-3 pb-1">
               <Link href="/audit" className="btn-primary w-full text-center py-3.5" onClick={() => setMenuOpen(false)}>
-                Book Free Audit
+                Get your Practice X-Ray
               </Link>
             </div>
           </div>

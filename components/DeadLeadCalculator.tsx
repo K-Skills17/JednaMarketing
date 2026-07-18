@@ -154,11 +154,11 @@ export default function UnscheduledRevenueCalculator() {
       {interacted && (
         <div className="mt-8 pt-6 border-t border-white/10">
           <Link
-            href="/audit"
+            href="/audit?src=revive"
             className="btn-primary"
             onClick={() => {
               if (typeof window !== "undefined" && (window as any).gtag) {
-                (window as any).gtag("event", "cta_click", { section: "calculator" });
+                (window as any).gtag("event", "cta_click", { section: "calculator", cta_src: "revive" });
               }
             }}
           >

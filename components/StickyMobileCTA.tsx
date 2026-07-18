@@ -28,7 +28,7 @@ export default function StickyMobileCTA() {
           tabIndex={visible ? 0 : -1}
           className="btn-primary w-full text-center text-sm py-3.5"
         >
-          Book free audit
+          Get your Practice X-Ray
         </Link>
       </div>
     </div>

@@ -1,18 +1,83 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import Nav from "@/components/Nav";
 import StickyMobileCTA from "@/components/StickyMobileCTA";
-import UnscheduledRevenueCalculator from "@/components/DeadLeadCalculator";
+import PracticeXRayCheck from "@/components/PracticeXRayCheck";
 import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
-import { dentalConfig } from "@/lib/niche-content";
 
-// To add a new vertical (e.g. /medspa), create a medSpaConfig in lib/niche-content.ts
-// and render this same page structure with the new config.
+export const metadata: Metadata = {
+  title: "Jedna LLC — Dental Practice Growth · Diagnosis Before Prescription",
+  description:
+    "Jedna starts every engagement with the Practice X-Ray™ — a full diagnostic of how patients find you, choose you, book with you, show up, accept treatment, and come back. Then we install what's missing, fitted to how your practice already runs.",
+};
+
+const ENGINES = [
+  {
+    num: "01",
+    name: "Visibility",
+    benefit:
+      "Patients searching in your area find you first, and what they find makes you the obvious choice — your profile, your site, your presence, all telling one story.",
+  },
+  {
+    num: "02",
+    name: "Capture & Response",
+    benefit:
+      "Every call, form, and message answered in under 60 seconds, days, nights, and Saturdays — because the first practice to respond wins the patient.",
+  },
+  {
+    num: "03",
+    name: "Show-Up",
+    benefit:
+      "The appointments you book actually happen. Confirmations, reminders, and recovery that protect your chair time without burdening your front desk.",
+  },
+  {
+    num: "04",
+    name: "Monetization",
+    benefit:
+      "Treatment plans that get accepted, not just presented — offers, financing framing, and follow-up built around YOUR case-presentation style.",
+  },
+  {
+    num: "05",
+    name: "Recurrence",
+    benefit:
+      "Recall that runs itself and dormant patients brought back to the chair. This is the engine where Revive™ lives.",
+  },
+  {
+    num: "06",
+    name: "Reputation",
+    benefit:
+      "A review engine that turns happy patients into your best salespeople, and answers the unhappy ones before they cost you the next ten.",
+  },
+];
+
+const HOMEPAGE_FAQS = [
+  {
+    q: "Do you replace my current agency or tools?",
+    a: "Only where the X-Ray shows a leak. If a piece of your stack is working, it stays — we're accountable for the system's output, not for selling you replacements.",
+  },
+  {
+    q: "What does a full engagement cost?",
+    a: "Whatever the film shows. Engagements are scoped from your X-Ray findings — you'll see the exact plan and price before deciding, and the X-Ray itself is free and yours to keep.",
+  },
+  {
+    q: "We're already busy. Why would we need this?",
+    a: "Busy and profitable aren't the same X-ray. Full-schedule practices usually leak in Monetization (case acceptance) and Recurrence (recall) — the most expensive engines to ignore.",
+  },
+  {
+    q: "Is patient outreach compliant?",
+    a: "First thing we solved: documented consent checks, automatic opt-outs and quiet hours, healthcare-grade stack with a signed BAA for patient data. Standards in writing at /compliance.",
+  },
+  {
+    q: "Why is the Practice X-Ray™ free?",
+    a: "Because we're building our US case-study base in public. The diagnostic earns the engagement — and if it doesn't, you still leave with the treatment plan.",
+  },
+];
 
 const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
-  mainEntity: dentalConfig.faqs.map((f) => ({
+  mainEntity: HOMEPAGE_FAQS.map((f) => ({
     "@type": "Question",
     name: f.q,
     acceptedAnswer: { "@type": "Answer", text: f.a },
@@ -20,8 +85,6 @@ const faqSchema = {
 };
 
 export default function HomePage() {
-  const config = dentalConfig;
-
   return (
     <>
       <script
@@ -36,33 +99,45 @@ export default function HomePage() {
         <section className="bg-ink min-h-screen flex flex-col justify-center pt-24 pb-20 md:pt-32 md:pb-28">
           <div className="container-site">
             <div className="max-w-3xl">
-              <p className="eyebrow mb-6">{config.eyebrow}</p>
+              <p className="eyebrow mb-6">Dental practice growth · United States</p>
 
               <h1
                 className="font-display font-black text-paper mb-6"
                 style={{ fontSize: "clamp(2.5rem, 5vw, 4.25rem)", lineHeight: 1.05, letterSpacing: "-0.03em" }}
               >
-                {config.heroHeadlinePrimary}{" "}
-                <span className="text-revive">{config.heroHeadlineAccent}</span>
+                You&apos;d never treatment-plan a patient without an X-ray.{" "}
+                <span className="text-revive">Your practice&apos;s growth deserves the same standard.</span>
               </h1>
 
               <p className="text-paper/70 text-lg md:text-xl leading-relaxed mb-10 max-w-2xl">
-                {config.heroSubheadline}
+                Jedna starts every engagement with the{" "}
+                <strong className="text-paper font-semibold">Practice X-Ray™</strong> — a full diagnostic of how patients find you, choose you, book with you, show up, accept treatment, and come back. Then we install what&apos;s missing, fitted to how your practice already runs. Not our template. Your system.
               </p>
 
               <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
-                <Link href="/audit" className="btn-primary-lg">
-                  Book your free Reactivation Audit
+                <Link
+                  href="/audit"
+                  className="btn-primary-lg"
+                  onClick={() => {
+                    if (typeof window !== "undefined" && (window as any).gtag) {
+                      (window as any).gtag("event", "cta_click", { section: "hero", cta_src: "xray" });
+                    }
+                  }}
+                >
+                  Get your free Practice X-Ray™
                 </Link>
               </div>
 
               <p className="text-muted-light text-sm mt-4 max-w-md">
-                20 minutes. We count the recoverable patients in your database and show you the math — we run 5 pilots per month, and the audit is how we choose them.
+                30 minutes. You leave with the diagnostic and the treatment plan — whether you hire us or not. We perform 12 X-Rays per month, each by a senior operator.
               </p>
 
-              {/* Proof strip */}
               <div className="mt-14 pt-8 border-t border-white/10 flex flex-wrap gap-6 text-paper/50 text-sm">
-                {config.proofStripItems.map((item) => (
+                {[
+                  "Diagnosis before prescription, always",
+                  "Systems fitted to your practice, not our template",
+                  "Entry offers priced so we only win when you do",
+                ].map((item) => (
                   <span key={item} className="flex items-center gap-2">
                     <span className="w-1 h-1 rounded-full bg-revive flex-shrink-0" />
                     {item}
@@ -81,143 +156,203 @@ export default function HomePage() {
                 className="font-display font-bold text-paper mb-8"
                 style={{ fontSize: "clamp(1.75rem, 3vw, 2.5rem)", lineHeight: 1.1, letterSpacing: "-0.025em" }}
               >
-                {config.problemHeader}
+                Most dental marketing treats symptoms. That&apos;s why it keeps failing.
               </h2>
 
               <div className="space-y-5 text-paper/70 text-lg leading-relaxed">
-                {config.problemBody.map((p, i) => (
-                  <p key={i}>{p}</p>
-                ))}
+                <p>
+                  An agency runs your ads. A freelancer posts your social. Your front desk answers when it can. A software tool sends reminders nobody configured. Each vendor optimizes their fragment — and no one is accountable for the only number you actually care about: production.
+                </p>
+                <p>
+                  So the pattern repeats: leads that nobody calls back for six hours. Five-star clinical work sitting next to a three-year-old Google profile. Treatment plans presented beautifully and never scheduled. Hygiene patients quietly lapsing while the ad budget buys strangers.
+                </p>
+                <p>
+                  That&apos;s not a marketing problem. It&apos;s an undiagnosed system problem — and buying more fragments won&apos;t fix it. In dentistry you&apos;d call this what it is:{" "}
+                  <strong className="text-paper">prescribing without diagnosing.</strong>
+                </p>
               </div>
-
-              <UnscheduledRevenueCalculator />
             </div>
           </div>
         </section>
 
-        {/* ─── MECHANISM ─── */}
+        {/* ─── THE DIAGNOSTIC ─── */}
         <section className="bg-paper section-pad">
           <div className="container-site">
             <div className="max-w-3xl">
-              <p className="eyebrow mb-4">How it works</p>
+              <p className="eyebrow mb-4">The diagnostic</p>
               <h2
-                className="font-display font-bold text-ink mb-14"
+                className="font-display font-bold text-ink mb-6"
                 style={{ fontSize: "clamp(1.75rem, 3vw, 2.5rem)", lineHeight: 1.1, letterSpacing: "-0.025em" }}
               >
-                Revive™: how dormant patients become booked appointments
+                The Practice X-Ray™: see the whole system before you spend another dollar
               </h2>
+              <p className="text-muted text-lg leading-relaxed mb-6">
+                We examine the six engines every growing practice runs on — and show you exactly which are healthy, which are cracked, and which are missing. You get the findings in plain numbers: where patients drop, what each leak costs monthly, and what to fix first for the fastest return.
+              </p>
+              <p className="text-muted text-lg leading-relaxed mb-10">
+                No 40-page PDF of jargon. A diagnostic and a treatment plan, the way you&apos;d give one.
+              </p>
 
-              <div className="space-y-12">
-                {[
-                  {
-                    num: "01",
-                    title: "We audit your database.",
-                    body: "You export your unscheduled treatment list and lapsed recall. We identify who's contactable, who consented, and what it's realistically worth — and give you the revenue number before anything else happens.",
-                  },
-                  {
-                    num: "02",
-                    title: "We re-open the conversation.",
-                    body: "Compliant voice and text outreach contacts every qualifying patient — natural, answering questions on the spot. Every response in under 60 seconds, 8am to 9pm, because the practice that responds first wins the appointment.",
-                  },
-                  {
-                    num: "03",
-                    title: "They book themselves onto your schedule.",
-                    body: "Interested patients click your live booking link and schedule directly. Every appointment is tracked to the patient it came from — the invoice matches your calendar. No attribution arguments, ever.",
-                  },
-                ].map((step) => (
-                  <div key={step.num} className="flex gap-8 items-start">
-                    <div className="flex-shrink-0 w-12 h-12 rounded-full border-2 border-revive flex items-center justify-center">
-                      <span className="tabular font-bold text-revive text-sm">{step.num}</span>
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-ink text-xl mb-2">{step.title}</h3>
-                      <p className="text-muted leading-relaxed">{step.body}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              {/* Compliance line */}
-              <div className="mt-12 pt-8 border-t border-ink/10 flex items-start gap-4">
-                <div className="flex-shrink-0 mt-0.5">
-                  <svg className="w-5 h-5 text-revive" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                  </svg>
-                </div>
-                <p className="text-muted text-sm leading-relaxed">
-                  Every campaign passes a documented consent check before a single message goes out. Patient-facing campaigns for dental practices run on a HIPAA-grade stack with a signed BAA. Our standards are public.{" "}
-                  <Link href="/compliance" className="text-ink font-semibold underline underline-offset-2 hover:text-revive transition-colors">
-                    Read our standards →
-                  </Link>
-                </p>
-              </div>
-
-              <div className="mt-6">
-                <Link href="/how-it-works" className="text-sm text-ink font-semibold hover:text-revive transition-colors underline underline-offset-2">
-                  See the full system → /how-it-works
-                </Link>
-              </div>
+              <Link
+                href="/audit"
+                className="btn-primary-lg"
+                onClick={() => {
+                  if (typeof window !== "undefined" && (window as any).gtag) {
+                    (window as any).gtag("event", "cta_click", { section: "diagnostic", cta_src: "xray" });
+                  }
+                }}
+              >
+                Book your free Practice X-Ray™
+              </Link>
+              <p className="text-muted text-sm mt-4">
+                Free at launch · 12 per month · operator-performed, not software-generated
+              </p>
             </div>
           </div>
         </section>
 
-        {/* ─── THE OFFER ─── */}
-        <section className="bg-ink section-pad">
+        {/* ─── MINI SELF-CHECK ─── */}
+        <section className="bg-ink section-pad border-t border-white/5">
           <div className="container-site">
             <div className="max-w-3xl">
-              <p className="eyebrow mb-4">The pilot</p>
+              <p className="eyebrow mb-4">Before you book</p>
+              <h2
+                className="font-display font-bold text-paper mb-4"
+                style={{ fontSize: "clamp(1.75rem, 3vw, 2.5rem)", lineHeight: 1.1, letterSpacing: "-0.025em" }}
+              >
+                Run the mini X-Ray yourself. It takes 90 seconds.
+              </h2>
+              <p className="text-paper/60 text-base leading-relaxed mb-10">
+                Six yes/no questions — one per engine. See how many are cracking before we look at the full film together.
+              </p>
+              <PracticeXRayCheck />
+            </div>
+          </div>
+        </section>
+
+        {/* ─── THE SYSTEM ─── */}
+        <section id="system" className="bg-paper section-pad">
+          <div className="container-site">
+            <p className="eyebrow mb-4">The Intelligent Practice System™</p>
+            <h2
+              className="font-display font-bold text-ink mb-4"
+              style={{ fontSize: "clamp(1.75rem, 3vw, 2.5rem)", lineHeight: 1.1, letterSpacing: "-0.025em" }}
+            >
+              Six engines. One accountable owner.
+            </h2>
+            <p className="text-muted text-lg leading-relaxed mb-14 max-w-2xl">
+              Everything a practice needs to grow, working as one system instead of six vendors pointing fingers at each other.
+            </p>
+
+            <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
+              {ENGINES.map((engine) => (
+                <div key={engine.num} className="border border-ink/10 rounded-sm p-6 flex gap-5 items-start">
+                  <span className="tabular font-bold text-revive text-sm flex-shrink-0 pt-0.5 w-6">{engine.num}</span>
+                  <div>
+                    <h3 className="font-semibold text-ink text-base mb-2">{engine.name}</h3>
+                    <p className="text-muted text-sm leading-relaxed">{engine.benefit}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <p className="text-muted text-sm mt-10 max-w-xl">
+              We don&apos;t sell these à la carte and hope. The X-Ray shows which engines your practice needs — and we only prescribe what the film shows.
+            </p>
+          </div>
+        </section>
+
+        {/* ─── FITTED, NOT FORCED ─── */}
+        <section className="bg-ink section-pad border-t border-white/5">
+          <div className="container-site">
+            <div className="max-w-3xl">
+              <p className="eyebrow mb-4">The differentiator</p>
               <h2
                 className="font-display font-bold text-paper mb-8"
                 style={{ fontSize: "clamp(1.75rem, 3vw, 2.5rem)", lineHeight: 1.1, letterSpacing: "-0.025em" }}
               >
-                We take the risk. You take the appointments.
+                Built around your methodology — not our template
               </h2>
 
-              <p className="text-paper/70 text-lg leading-relaxed mb-10">
-                Here&apos;s the honest version. Jedna is new to the US market. We&apos;re not going to ask you to trust a stranger with a retainer — we&apos;re going to earn the case study.
-              </p>
+              <div className="space-y-5 text-paper/70 text-lg leading-relaxed">
+                <p>
+                  Most agencies have one machine, and every practice gets fed into it. Same funnel, same calendar, same scripts — &ldquo;proven,&rdquo; on someone else&apos;s patients.
+                </p>
+                <p>
+                  We do the opposite. The system installs around how your practice already works: your scheduling philosophy, your practice software, the way you present treatment, the procedures you actually want more of, the tone your patients expect from you. Your team shouldn&apos;t have to learn a marketing company&apos;s workflow. The system should learn yours.
+                </p>
+                <p className="text-paper/50">
+                  That&apos;s slower to set up than a template. It&apos;s also why it still works in month nine.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
 
-              <div className="space-y-5 mb-12">
+        {/* ─── REVIVE TEASER ─── */}
+        <section className="bg-paper section-pad">
+          <div className="container-site">
+            <div className="max-w-3xl">
+              <p className="eyebrow mb-4">Want proof before commitment?</p>
+              <h2
+                className="font-display font-bold text-ink mb-6"
+                style={{ fontSize: "clamp(1.75rem, 3vw, 2.5rem)", lineHeight: 1.1, letterSpacing: "-0.025em" }}
+              >
+                Start where the risk is entirely ours.
+              </h2>
+              <p className="text-muted text-lg leading-relaxed mb-6">
+                Revive™ is our patient reactivation engine, offered standalone as a pilot: we re-contact your unscheduled treatment plans, overdue recall, and cold leads — and you pay only per appointment that books. No retainer. No setup fee.
+              </p>
+              <p className="text-muted text-lg leading-relaxed mb-10">
+                It&apos;s the fastest way to test how we work, funded by revenue that was sitting in your practice software all along.
+              </p>
+              <Link href="/revive" className="inline-flex items-center gap-2 text-ink font-semibold hover:text-revive transition-colors underline underline-offset-4">
+                See how Revive™ works
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* ─── PROOF ─── */}
+        <section className="bg-ink section-pad border-t border-white/5">
+          <div className="container-site">
+            <div className="max-w-3xl">
+              <p className="eyebrow mb-4">We didn&apos;t guess our way into dentistry</p>
+              <h2
+                className="font-display font-bold text-paper mb-10"
+                style={{ fontSize: "clamp(1.5rem, 2.5vw, 2rem)", lineHeight: 1.15 }}
+              >
+                Our team built this system filling dental chairs in Brazil&apos;s hyper-competitive market. Same six engines, now installed in US practices.
+              </h2>
+
+              <div className="grid sm:grid-cols-2 gap-6 mb-8">
                 {[
                   {
-                    label: "$0 upfront.",
-                    detail: "No setup fee, no retainer, no contract lock-in.",
+                    value: "221",
+                    label: "Tracked dental patient leads generated at under $0.20 each — our benchmark from Brazilian dental operations.",
                   },
                   {
-                    label: "We reactivate patients and leads you already own.",
-                    detail: "Your existing database. You already paid to acquire them.",
+                    value: "Biodonte",
+                    label: "Ongoing patient acquisition for a dental group in Brazil. Same playbook, now US-facing.",
                   },
-                  {
-                    label: "You pay a flat fee per appointment that books.",
-                    detail: "Nobody books → you owe nothing and you've lost nothing but a lead export.",
-                  },
-                ].map((item, i) => (
-                  <div key={i} className="flex gap-4 items-start">
-                    <div className="flex-shrink-0 w-6 h-6 rounded-full bg-revive/20 flex items-center justify-center mt-0.5">
-                      <svg className="w-3.5 h-3.5 text-revive" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
-                      </svg>
-                    </div>
-                    <div>
-                      <span className="text-paper font-semibold">{item.label}</span>{" "}
-                      <span className="text-paper/60">{item.detail}</span>
-                    </div>
+                ].map((stat, i) => (
+                  <div key={i} className="bg-ink-light border border-white/10 rounded-sm p-6">
+                    <p className="tabular font-display font-bold text-revive text-4xl mb-2">{stat.value}</p>
+                    <p className="text-paper/60 text-sm leading-relaxed">{stat.label}</p>
                   </div>
                 ))}
               </div>
 
-              <div className="bg-ink-light border border-white/10 rounded-sm p-6 mb-10">
-                <p className="text-paper/80 text-base leading-relaxed">
-                  The worst case costs you 20 minutes. The typical case pays for itself with the first booking.
-                </p>
-              </div>
-
-              <Link href="/audit" className="btn-primary-lg">
-                Book your Reactivation Audit
-              </Link>
-              <p className="text-muted-light text-sm mt-4">
-                Pilots capped at 5 per month — every campaign gets a human compliance review. The audit is how we pick.
+              <p className="text-paper/40 text-sm leading-relaxed mb-6">
+                Entry offers are structured so we only win when you do — because we&apos;re new to the US market and building our case-study base in public. No fabricated results, ever.
               </p>
+
+              <Link href="/results" className="text-sm text-revive font-medium hover:underline underline-offset-2">
+                See the numbers → /results
+              </Link>
             </div>
           </div>
         </section>
@@ -230,14 +365,18 @@ export default function HomePage() {
                 className="font-display font-bold text-ink mb-12"
                 style={{ fontSize: "clamp(1.75rem, 3vw, 2.5rem)", lineHeight: 1.1, letterSpacing: "-0.025em" }}
               >
-                Built for dental practices. Not for everyone.
+                Who the Practice X-Ray™ is for.
               </h2>
 
               <div className="grid md:grid-cols-2 gap-10">
                 <div>
                   <p className="text-xs font-semibold tracking-widest uppercase text-revive mb-5">Good fit</p>
                   <ul className="space-y-3">
-                    {config.goodFitItems.map((item, i) => (
+                    {[
+                      "General and specialty practices serious about production growth",
+                      "An owner or office manager willing to spend 30 minutes on the diagnostic",
+                      "Willing to fix systems, not just run more ads",
+                    ].map((item, i) => (
                       <li key={i} className="flex gap-3 text-muted text-sm leading-relaxed">
                         <svg className="w-4 h-4 text-revive flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
@@ -251,7 +390,11 @@ export default function HomePage() {
                 <div>
                   <p className="text-xs font-semibold tracking-widest uppercase text-muted mb-5">Not a fit</p>
                   <ul className="space-y-3">
-                    {config.notFitItems.map((item, i) => (
+                    {[
+                      "Practices that want a cheap post-scheduler",
+                      "Anyone who wants patients contacted without consent checks — we won't, at any price",
+                      "Startup practices with no patient base or lead history",
+                    ].map((item, i) => (
                       <li key={i} className="flex gap-3 text-muted text-sm leading-relaxed">
                         <svg className="w-4 h-4 text-ink/30 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -266,44 +409,8 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* ─── PROOF ─── */}
-        <section className="bg-ink section-pad border-t border-white/5">
-          <div className="container-site">
-            <div className="max-w-3xl">
-              <p className="eyebrow mb-4">{config.proofEyebrow}</p>
-              <h2
-                className="font-display font-bold text-paper mb-10"
-                style={{ fontSize: "clamp(1.5rem, 2.5vw, 2rem)", lineHeight: 1.15 }}
-              >
-                {config.proofHeader}
-              </h2>
-
-              <div className="grid sm:grid-cols-2 gap-6 mb-8">
-                {config.proofStats.map((stat, i) => (
-                  <div key={i} className="bg-ink-light border border-white/10 rounded-sm p-6">
-                    <p className="tabular font-display font-bold text-revive text-4xl mb-2">{stat.value}</p>
-                    <p className="text-paper/60 text-sm leading-relaxed">{stat.label}</p>
-                  </div>
-                ))}
-              </div>
-
-              <div className="border-t border-white/10 pt-6 flex items-start gap-4">
-                <p className="text-paper/50 text-sm leading-relaxed">
-                  {config.proofNote}
-                </p>
-              </div>
-
-              <div className="mt-6">
-                <Link href="/results" className="text-sm text-revive font-medium hover:underline underline-offset-2">
-                  See the numbers → /results
-                </Link>
-              </div>
-            </div>
-          </div>
-        </section>
-
         {/* ─── FAQ ─── */}
-        <section className="bg-paper section-pad">
+        <section className="bg-paper section-pad border-t border-ink/5">
           <div className="container-site">
             <div className="max-w-3xl">
               <p className="eyebrow mb-4">Common questions</p>
@@ -313,7 +420,7 @@ export default function HomePage() {
               >
                 Straight answers.
               </h2>
-              <FAQ items={config.faqs} />
+              <FAQ items={HOMEPAGE_FAQS} />
             </div>
           </div>
         </section>
@@ -326,16 +433,24 @@ export default function HomePage() {
                 className="font-display font-black text-paper mb-6"
                 style={{ fontSize: "clamp(2rem, 4vw, 3.25rem)", lineHeight: 1.08, letterSpacing: "-0.03em" }}
               >
-                Find out what your unscheduled treatment is worth.{" "}
-                <span className="text-revive">It costs you 20 minutes.</span>
+                Get the film.{" "}
+                <span className="text-revive">Then decide.</span>
               </h2>
 
               <p className="text-paper/60 text-lg leading-relaxed mb-10">
-                One call. We count your recoverable patients, run the revenue math with you, and show you a live demo. If the numbers are too small, we&apos;ll tell you that too.
+                Thirty minutes. Six engines examined. A treatment plan in plain numbers — yours whether we ever work together or not.
               </p>
 
-              <Link href="/audit" className="btn-primary-lg">
-                Book your free Reactivation Audit
+              <Link
+                href="/audit"
+                className="btn-primary-lg"
+                onClick={() => {
+                  if (typeof window !== "undefined" && (window as any).gtag) {
+                    (window as any).gtag("event", "cta_click", { section: "final_cta", cta_src: "xray" });
+                  }
+                }}
+              >
+                Book your free Practice X-Ray™
               </Link>
 
               <div className="mt-12 flex flex-wrap justify-center gap-5 text-paper/30 text-sm">
