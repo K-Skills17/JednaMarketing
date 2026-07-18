@@ -115,15 +115,7 @@ export default function HomePage() {
               </p>
 
               <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
-                <Link
-                  href="/audit"
-                  className="btn-primary-lg"
-                  onClick={() => {
-                    if (typeof window !== "undefined" && (window as any).gtag) {
-                      (window as any).gtag("event", "cta_click", { section: "hero", cta_src: "xray" });
-                    }
-                  }}
-                >
+                <Link href="/audit" className="btn-primary-lg">
                   Get your free Practice X-Ray™
                 </Link>
               </div>
@@ -193,15 +185,7 @@ export default function HomePage() {
                 No 40-page PDF of jargon. A diagnostic and a treatment plan, the way you&apos;d give one.
               </p>
 
-              <Link
-                href="/audit"
-                className="btn-primary-lg"
-                onClick={() => {
-                  if (typeof window !== "undefined" && (window as any).gtag) {
-                    (window as any).gtag("event", "cta_click", { section: "diagnostic", cta_src: "xray" });
-                  }
-                }}
-              >
+              <Link href="/audit" className="btn-primary-lg">
                 Book your free Practice X-Ray™
               </Link>
               <p className="text-muted text-sm mt-4">
@@ -441,15 +425,7 @@ export default function HomePage() {
                 Thirty minutes. Six engines examined. A treatment plan in plain numbers — yours whether we ever work together or not.
               </p>
 
-              <Link
-                href="/audit"
-                className="btn-primary-lg"
-                onClick={() => {
-                  if (typeof window !== "undefined" && (window as any).gtag) {
-                    (window as any).gtag("event", "cta_click", { section: "final_cta", cta_src: "xray" });
-                  }
-                }}
-              >
+              <Link href="/audit" className="btn-primary-lg">
                 Book your free Practice X-Ray™
               </Link>
 

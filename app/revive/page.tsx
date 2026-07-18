@@ -98,15 +98,7 @@ export default function RevivePage() {
                 They already trust you. They already need care. They just never came back. Revive™ re-activates them with compliant outreach, real conversations, and direct-to-calendar booking — and you pay only when they show up.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Link
-                  href="/audit?src=revive"
-                  className="btn-primary"
-                  onClick={() => {
-                    if (typeof window !== "undefined" && (window as any).gtag) {
-                      (window as any).gtag("event", "cta_click", { section: "revive_hero", cta_src: "revive" });
-                    }
-                  }}
-                >
+                <Link href="/audit?src=revive" className="btn-primary">
                   Book your free Reactivation Audit
                 </Link>
                 <Link href="/" className="inline-flex items-center gap-2 text-paper/50 hover:text-paper text-sm font-medium transition-colors self-center">
@@ -232,15 +224,7 @@ export default function RevivePage() {
                 <div className="mt-4 h-px bg-white/10" />
                 <p className="text-paper/20 text-xs mt-4">[Video embed — configure in Komando review]</p>
               </div>
-              <Link
-                href="/audit?src=revive"
-                className="btn-primary"
-                onClick={() => {
-                  if (typeof window !== "undefined" && (window as any).gtag) {
-                    (window as any).gtag("event", "cta_click", { section: "revive_demo", cta_src: "revive" });
-                  }
-                }}
-              >
+              <Link href="/audit?src=revive" className="btn-primary">
                 Book your free Reactivation Audit
               </Link>
               <p className="text-muted-light text-sm mt-4">Includes the live demo call. 20 minutes, no commitment.</p>
@@ -299,15 +283,7 @@ export default function RevivePage() {
               <p className="text-paper/60 text-lg leading-relaxed mb-10">
                 One call. We count your unscheduled patients, show you the math, and run a live demo to your phone. If the numbers don't justify a pilot, we'll tell you that.
               </p>
-              <Link
-                href="/audit?src=revive"
-                className="btn-primary"
-                onClick={() => {
-                  if (typeof window !== "undefined" && (window as any).gtag) {
-                    (window as any).gtag("event", "cta_click", { section: "revive_final_cta", cta_src: "revive" });
-                  }
-                }}
-              >
+              <Link href="/audit?src=revive" className="btn-primary">
                 Book your free Reactivation Audit
               </Link>
               <p className="text-muted-light text-sm mt-4">12 X-Ray slots per month — filled on a first-come basis.</p>
