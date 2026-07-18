@@ -67,6 +67,11 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
         />
+        {/* Jedna chatbot widget */}
+        <script
+          src="https://athletic-serenity-production.up.railway.app/api/webchat/22a6886f-1aa7-4dfb-baab-d95cb0f890ea/widget.js"
+          async
+        />
       </head>
       <body>{children}</body>
     </html>
